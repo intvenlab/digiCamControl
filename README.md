@@ -1,3 +1,6 @@
+Internal intven fork of this library for use in SITB. 
+
+
 For developers visit http://www.digicamcontrol.com/doc/development/lib
 
 
