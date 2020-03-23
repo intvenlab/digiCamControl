@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CameraControl.Devices</RootNamespace>
     <AssemblyName>CameraControl.Devices</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
@@ -107,18 +107,22 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Accord, Version=3.8.2.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Accord.3.8.2-alpha\lib\net46\Accord.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Accord, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Windows Version\packages\Accord.3.8.0\lib\net462\Accord.dll</HintPath>
     </Reference>
-    <Reference Include="Accord.Video, Version=3.8.2.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Accord.Video.3.8.2-alpha\lib\net46\Accord.Video.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Accord.Video, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Windows Version\packages\Accord.Video.3.8.0\lib\net462\Accord.Video.dll</HintPath>
     </Reference>
-    <Reference Include="Accord.Video.DirectShow, Version=3.8.2.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Accord.Video.DirectShow.3.8.2-alpha\lib\net46\Accord.Video.DirectShow.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Accord.Video.DirectShow, Version=3.8.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Windows Version\packages\Accord.Video.DirectShow.3.8.0\lib\net462\Accord.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="Canon.Eos.Framework, Version=2.1.2.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Canon.Eos.Framework\bin\Release\Canon.Eos.Framework.dll</HintPath>
     </Reference>
     <Reference Include="Interop.WIA">
       <HintPath>..\refs\Interop.WIA.dll</HintPath>
@@ -127,6 +131,10 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="PortableDeviceLib, Version=2.1.2.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PortableDeviceLib\bin\Release\PortableDeviceLib.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -271,17 +279,6 @@
     <Compile Include="Xml\XmlPropertyValue.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Canon.Eos.Framework\Canon.Eos.Framework.csproj">
-      <Project>{F809DBB6-E0E8-47A8-92ED-C24575576A5D}</Project>
-      <Name>Canon.Eos.Framework</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PortableDeviceLib\PortableDeviceLib.csproj">
-      <Project>{E9F048C1-C6A0-4CCD-BE57-4E76A7F8B32D}</Project>
-      <Name>PortableDeviceLib</Name>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -291,7 +288,9 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Accord.3.8.2-alpha\build\Accord.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Accord.3.8.2-alpha\build\Accord.targets'))" />
+    <Error Condition="!Exists('..\..\..\Windows Version\packages\Accord.3.8.0\build\Accord.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\Windows Version\packages\Accord.3.8.0\build\Accord.targets'))" />
   </Target>
+  <Import Project="..\..\..\Windows Version\packages\Accord.3.8.0\build\Accord.targets" Condition="Exists('..\..\..\Windows Version\packages\Accord.3.8.0\build\Accord.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

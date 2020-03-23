@@ -149,6 +149,35 @@ namespace Canon.Eos.Framework
         }
 
         /// <summary>
+        /// Gets the lens name.
+        /// SCOTTS CODE
+        /// </summary>
+        [EosProperty(Edsdk.PropID_LensName)]
+        public string LensName
+        {
+            get { return this.GetPropertyStringData(Edsdk.PropID_LensName); }
+        }
+
+        /// <summary>
+        /// Gets the lens status.
+        /// SCOTTS CODE
+        /// </summary>
+        [EosProperty(Edsdk.PropID_LensStatus)]
+        public string LensStatus
+        {
+            get { return this.GetPropertyStringData(Edsdk.PropID_LensStatus); }
+        }
+
+        /// <summary>
+        /// SCOTTS CODE
+        /// </summary>
+        [EosProperty(Edsdk.kEdsPropID_CurrentFolder)]
+        public string FolderName
+        {
+            get { return this.GetPropertyStringData(Edsdk.kEdsPropID_CurrentFolder); }
+        }
+
+        /// <summary>
         /// Gets a value indicating whether this instance is in host live view mode.
         /// </summary>
         /// <value>
